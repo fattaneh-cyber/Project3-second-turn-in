@@ -6,6 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Select all movie items
   const movieItems = document.querySelectorAll('.movie-item');
 
+  // If there are no movie items, exit early
+  if (movieItems.length === 0) {
+    console.log("No movie items found.");
+    return;
+  }
+
   let currentIndex = 0;
 
   // Function to show the current movie
@@ -45,6 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
     movieSection.appendChild(prevButton);
     movieSection.appendChild(nextButton);
   } else {
-   
+    console.log("Movie section not found.");
   }
 });
