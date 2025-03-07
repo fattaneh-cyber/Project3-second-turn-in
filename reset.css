@@ -1,0 +1,82 @@
+/* Resetting all margin and padding to 0 for all elements */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set all text elements to inherit font-family from body */
+body, h1, h2, h3, h4, h5, h6, p, blockquote, ul, ol, li, a {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+/* Set body font size and family to a default standard */
+body {
+    font-size: 16px;
+    line-height: 1.5;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #fff;
+}
+
+/* Remove list styles */
+ul, ol {
+    list-style: none;
+}
+
+/* Remove link styles (underlines) */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Remove default styles for buttons */
+button,
+input,
+textarea,
+select {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+/* Set the default image to fit within its container */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Remove default table styles */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    text-align: left;
+    padding: 8px;
+}
+
+/* Make sure form elements do not have extra spacing */
+input, button, select, textarea {
+    margin: 0;
+}
+
+/* Normalize form elements */
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
+}
+
+/* Normalize button appearance */
+button {
+    cursor: pointer;
+}
