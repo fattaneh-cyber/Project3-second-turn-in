@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps</title>
+
+    <!-- Link to the external CSS files -->
+    <link rel="stylesheet" href="reset.css"> <!-- Reset CSS -->
+    <link rel="stylesheet" href="styles.css"> <!-- Custom CSS -->
+
+    <!-- Link to the external JavaScript file (script.js) if any, otherwise rely on inline script -->
+    <script src="script.js" defer></script> <!-- Example for external JS -->
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="page3.html">Hobbies</a></li>
+                <li><a href="page4.html">Google Maps</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Google Maps Example</h1>
+        <p>This page displays a map of New York City with multiple features:</p>
+        <ul>
+            <li>Multiple Markers</li>
+            <li>Custom Map Style</li>
+            <li>Click-to-Show-Info Window</li>
+        </ul>
+
+        <!-- Google Map container -->
+        <div id="map" class="map-container" style="height: 500px;"></div> <!-- Map container with specified height -->
+
+        <script>
+            // Ensuring the DOM is fully loaded before calling initMap
+            document.addEventListener("DOMContentLoaded", function () {
+                initMap();
+            });
+
+            // Function to initialize the map
+            function initMap() {
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    center: { lat: 40.7128, lng: -74.0060 },  // Coordinates for New York City
+                    zoom: 12,
+                    styles: [  // Custom map style to change the appearance
+                        {
+                            "elementType": "geometry",
+                            "stylers": [
+                                {
+                                    "color": "#212121"
+                                }
+                            ]
+                        },
+                        {
+                            "elementType": "labels.icon",
+                            "stylers": [
+                                {
+                                    "visibility": "off"
+                                }
+                            ]
+                        },
+                        {
+                            "elementType": "labels.text.fill",
+                            "stylers": [
+                                {
+                                    "color": "#757575"
+                                }
+                            ]
+                        },
+                        {
+                            "elementType": "labels.text.stroke",
+                            "stylers": [
+                                {
+                                    "color": "#212121"
+                                }
+                            ]
+                        }
+                    ]
+                });
+
+                // Adding multiple markers with info windows
+                const markers = [
+                    { lat: 40.7128, lng: -74.0060, title: "New York City" },
+                    { lat: 40.748817, lng: -73.985428, title: "Empire State Building" },
+                    { lat: 40.730610, lng: -73.935242, title: "Brooklyn" }
+                ];
+
+                markers.forEach(function (marker) {
+                    const newMarker = new google.maps.Marker({
+                        position: { lat: marker.lat, lng: marker.lng },
+                        map: map,
+                        title: marker.title
+                    });
+
+                    // Adding an info window for each marker
+                    const infoWindow = new google.maps.InfoWindow({
+                        content: `<h3>${marker.title}</h3><p>Coordinates: ${marker.lat}, ${marker.lng}</p>`
+                    });
+
+                    newMarker.addListener('click', function () {
+                        infoWindow.open(map, newMarker);
+                    });
+                });
+
+                // Click-to-show info window on the map
+                map.addListener('click', function (e) {
+                    const clickedLocation = e.latLng;
+                    const infoWindow = new google.maps.InfoWindow({
+                        content: `<h3>Clicked Location</h3><p>Lat: ${clickedLocation.lat()}, Lng: ${clickedLocation.lng()}</p>`
+                    });
+                    infoWindow.setPosition(clickedLocation);
+                    infoWindow.open(map);
+                });
+            }
+        </script>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Website</p>
+    </footer>
+
+    <!-- Google Maps API script -->
+    <!-- Replace 'YOUR_API_KEY' with your actual API key -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9-yAQ_oQ2xtGnZjW82gWA2fmYFNGd1vQ&callback=initMap" async defer></script>
+</body>
+</html>
