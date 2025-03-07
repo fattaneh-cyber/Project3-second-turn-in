@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 3 - Movies and Pottery Showcase</title>
+    
+    <!-- Meta description for SEO -->
+    <meta name="description" content="Explore my favorite movies and handmade pottery creations on this page. Discover beautiful ceramic pieces and movie recommendations.">
+    
+    <!-- Link to the external CSS files -->
+    <link rel="stylesheet" href="reset.css"> <!-- Reset CSS -->
+    <link rel="stylesheet" href="styles.css"> <!-- Custom CSS -->
+
+    <!-- Adding JavaScript to the page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add event listeners to movie images
+            document.querySelectorAll('.movie-image').forEach(img => {
+                img.addEventListener('click', () => {
+                    const movieName = img.getAttribute('alt');
+                    alert("You clicked on " + movieName);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <!-- Centered Horizontal Navigation -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="page3.html">Hobbies</a></li>
+                <li><a href="map.html">Google Maps</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>My Favorite Movies and Pottery</h1>
+        <p>Check out some of my favorite movies along with a pottery piece I made!</p>
+
+        <!-- Section for Movie Images and Descriptions -->
+        <section>
+            <h2>Movies</h2>
+            <div class="movies-container">
+                <div class="movie-item">
+                    <img src="images/movie1.png" alt="Movie 1" class="movie-image" loading="lazy">
+                    <p><strong>Movie 1:</strong> A great adventure movie. This film takes you on a thrilling journey through unknown lands, where the protagonist faces challenges, encounters allies, and discovers hidden truths. It's full of heart-pounding moments and breathtaking landscapes.</p>
+                </div>
+
+                <div class="movie-item">
+                    <img src="images/movie2.png" alt="Movie 2" class="movie-image" loading="lazy">
+                    <p><strong>Movie 2:</strong> A touching drama. The story revolves around complex human emotions, dealing with themes of love, loss, and redemption. It explores the intricacies of relationships, with a powerful performance from the lead actor.</p>
+                </div>
+
+                <div class="movie-item">
+                    <img src="images/movie3.png" alt="Movie 3" class="movie-image" loading="lazy">
+                    <p><strong>Movie 3:</strong> An inspiring story. The film follows a protagonist who, despite facing overwhelming odds, rises above challenges and finds personal growth. It's a heartwarming tale of resilience, self-discovery, and hope.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section for Pottery Image and Description -->
+        <section>
+            <h2>Pottery Showcase</h2>
+            <div class="pottery-container">
+                <img src="images/pottery.png" alt="Beautiful Pottery" class="pottery-image" loading="lazy">
+                <p>This is one of my favorite pottery pieces. It's a hand-thrown vase, made with brown clay and adorned with a beautiful blue glaze. The design is inspired by natural elements, such as the shapes of leaves and flowers. I took great care in shaping the piece on the potter's wheel, carefully adjusting the thickness and ensuring that the curvature was just right. The glaze is a custom blend that gives the vase a vibrant, yet earthy look, and the smooth finish feels wonderful to the touch.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Fattaneh Kalhor</p>
+    </footer>
+</body>
+</html>
